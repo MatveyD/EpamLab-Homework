@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <!--RIDERS-->
+  <bean id="tom" class="com.epam.domain.Rider">
+    <property name="name" value="Tom"></property>
+  </bean>
+  <bean id="jerry" class="com.epam.domain.Rider">
+    <property name="name" value="Jerry"></property>
+  </bean>
+  <bean id="berty" class="com.epam.domain.Rider">
+    <property name="name" value="Berty"></property>
+  </bean>
+
+  <!--BREED-->
+  <bean id="breed1" class="com.epam.domain.Breed">
+    <property name="name" value="breed1"></property>
+  </bean>
+  <bean id="breed2" class="com.epam.domain.Breed">
+    <property name="name" value="breed2"></property>
+  </bean>
+  <bean id="breed3" class="com.epam.domain.Breed">
+    <property name="name" value="breed3"></property>
+  </bean>
+
+  <!--HORSES-->
+  <bean id="sparky" class="com.epam.domain.Horse">
+    <property name="name" value="Sparky"></property>
+    <property name="rider" ref="tom"></property>
+    <property name="breed" ref="breed1"></property>
+  </bean>
+  <bean id="fortochka" class="com.epam.domain.Horse">
+    <property name="name" value="Fortochka"></property>
+    <property name="rider" ref="jerry"></property>
+    <property name="breed" ref="breed2"></property>
+  </bean>
+  <bean id="pepsi" class="com.epam.domain.Horse">
+    <property name="name" value="Pepsi"></property>
+    <property name="rider" ref="berty"></property>
+    <property name="breed" ref="breed2"></property>
+  </bean>
+
+  <!--SERVICES-->
+  <bean id="horseService" class="com.epam.service.HorseService">
+    <property name="horses">
+      <list value-type="com.epam.domain.Horse">
+        <ref bean="sparky" />
+        <ref bean="fortochka" />
+        <ref bean="pepsi" />
+      </list>
+    </property>
+  </bean>
+
+</beans>
