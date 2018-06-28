@@ -39,7 +39,7 @@
   <bean id="pepsi" class="com.epam.domain.Horse">
     <property name="name" value="Pepsi"></property>
     <property name="rider" ref="berty"></property>
-    <property name="breed" ref="breed2"></property>
+    <property name="breed" ref="breed3"></property>
   </bean>
 
   <!--SERVICES-->
@@ -51,6 +51,11 @@
         <ref bean="pepsi" />
       </list>
     </property>
+  </bean>
+  <bean id="raceService" class="com.epam.service.RaceService">
+    <property name="horseService" ref="horseService"/>
+  </bean>
+  <bean id="emulationService" class="com.epam.service.EmulationService">
   </bean>
 
 </beans>
